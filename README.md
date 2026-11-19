@@ -4,10 +4,10 @@ B.Tech CSE (AI & ML), Semester VII, Autumn 2026–27, UPES Dehradun. Course teac
 
 | | |
 |---|---|
-| Name | Student Name |
-| SAP ID | 5001XXXXX |
-| Batch | A |
-| Partner(s) | Partner Name (5001XXXXX) |
+| Name | Saksham Agrawal |
+| SAP ID | 500121969 |
+| Batch | B (B.Tech CSE AI & ML B2) |
+| Partner(s) | (to be added) |
 
 ## Contents
 
