@@ -3,9 +3,14 @@
 Not run yet. The instructions and code are in the course zip `AISR-Cross-Embodiment-PyBullet`
 (README.md, MANUAL.md, docs/MANUAL.pdf), which is not on the course teacher's GitHub.
 
-Environment check on this machine (Windows 11, Python 3.11 venv): `pip install pybullet` has no
-Windows wheel and needs Microsoft C++ Build Tools to compile. The conda-forge package
-(`conda env aisr-xembody`, as the guidelines name it) is the easier route.
+Environment (ready): PyBullet has no Windows wheel on PyPI, so it is installed from conda-forge with Miniforge:
+
+```
+conda create -n aisr-xembody python=3.11 pybullet numpy matplotlib
+conda activate aisr-xembody
+```
+
+Python 3.11.18, PyBullet (conda-forge), NumPy 2.4.6, Matplotlib 3.11.2; `p.connect(p.DIRECT)` works.
 
 Planned commands, once the zip is in place:
 
