@@ -1,0 +1,67 @@
+diff --git a/analysis/plot_trajectories.py b/analysis/plot_trajectories.py
+index 6269cd2..245a44c 100644
+--- a/analysis/plot_trajectories.py
++++ b/analysis/plot_trajectories.py
+@@ -23,13 +23,15 @@ for name, p in sorted(paths.items()):
+     p = np.array(p)
+     ax1.plot(p[:, 0], p[:, 1], lw=1, label=name)
+     ax1.plot(*p[0], "o", ms=4, color=ax1.lines[-1].get_color())
+-ax1.set(xlim=(-H_, H_), ylim=(-H_, H_), aspect="equal", title="Paths (dot = start)")
++ax1.set(xlim=(-H_, H_), ylim=(-H_, H_), aspect="equal", title="Paths (dot = start)",
++        xlabel="x (m)", ylabel="y (m)")
+ ax1.legend(fontsize=8)
+ 
+ bins = int(round(2 * H_ / CELL))
+ H, _, _ = np.histogram2d(allp[:, 0], allp[:, 1], bins=bins, range=[[-H_, H_], [-H_, H_]])
+ ax2.imshow(H.T > 0, origin="lower", extent=(-H_, H_, -H_, H_), cmap="Greens")
+-ax2.set(title=f"Cells visited: {(H > 0).mean():.0%} of {CELL * 100:.0f} cm grid", aspect="equal")
++ax2.set(title=f"Cells visited: {(H > 0).mean():.0%} of {CELL * 100:.0f} cm grid", aspect="equal",
++        xlabel="x (m)", ylabel="y (m)")
+ fig.tight_layout()
+ png = os.path.splitext(src)[0] + ".png"
+ fig.savefig(png, dpi=150)
+diff --git a/tools/run_experiment.py b/tools/run_experiment.py
+index 90bd830..85c9cb7 100644
+--- a/tools/run_experiment.py
++++ b/tools/run_experiment.py
+@@ -24,6 +24,9 @@ from metrics import summarise  # noqa: E402
+ WORLDS = {
+     "swarm": ("swarm_arena.wbt", "epuck_braitenberg"),
+     "pioneer": ("pioneer_lidar.wbt", "pioneer_lidar_nav"),
++    # GUIDE.md exercise 4: same arena, different physics/control time step
++    "swarm_ts64": ("swarm_arena_ts64.wbt", "epuck_braitenberg"),
++    "swarm_ts8": ("swarm_arena_ts8.wbt", "epuck_braitenberg"),
+ }
+ 
+ 
+@@ -68,9 +71,10 @@ def main():
+     src = open(os.path.join(ROOT, "worlds", wfile)).read()
+     robot_args = " ".join(f'"--{s}"' for s in a.set)
+     src = src.replace(f'controller "{ctrl}"', f'controller "{ctrl}" controllerArgs [ {robot_args} ]')
+-    log_args = f'"--seconds={a.seconds}" "--out={out}" "--quit=1"'
++    # forward slashes: a Windows path inside a .wbt string / re.sub template breaks on "\"
++    log_args = f'"--seconds={a.seconds}" "--out={out.replace(os.sep, "/")}" "--quit=1"'
+     src = re.sub(r'controller "trajectory_logger"(\s*controllerArgs \[[^\]]*\])?',
+-                 f'controller "trajectory_logger" controllerArgs [ {log_args} ]', src)
++                 lambda _m: f'controller "trajectory_logger" controllerArgs [ {log_args} ]', src)
+     tmp = os.path.join(ROOT, "worlds", f"_experiment_{a.world}.wbt")
+     with open(tmp, "w") as f:
+         f.write(src)
+@@ -79,7 +83,7 @@ def main():
+            "--stdout", "--stderr", tmp]
+     print(f"Running {a.world} for {a.seconds:.0f} s with {a.set or 'default parameters'} ...")
+     try:
+-        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=max(120, a.seconds * 3))
++        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=max(600, a.seconds * 60))  # the 8 ms time step runs far slower than real time
+         errors = [l for l in (proc.stdout + proc.stderr).splitlines() if "ERROR" in l]
+         if errors:
+             print("\n".join(errors))
+@@ -88,7 +92,7 @@ def main():
+     if not os.path.exists(out):
+         sys.exit("No trajectory was written; open the world in the Webots window to see the error.")
+     print(f"Trajectory: {os.path.relpath(out, ROOT)}")
+-    summarise(out, a.world)
++    summarise(out, a.world.split("_")[0])
+ 
+ 
+ if __name__ == "__main__":

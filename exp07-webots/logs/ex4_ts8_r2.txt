@@ -1,0 +1,9 @@
+Running swarm_ts8 for 120 s with default parameters ...
+Trajectory: analysis\runs\ex4_ts8_r2.csv
+robot       path m  mean m/s  stuck %
+e-puck1       6.37     0.053      0.1
+e-puck2       6.60     0.055      0.1
+e-puck3       6.81     0.057      0.2
+e-puck4       7.04     0.059      0.2
+e-puck5       7.29     0.061      0.1
+coverage: 83% of 16x16 grid (10 cm cells)

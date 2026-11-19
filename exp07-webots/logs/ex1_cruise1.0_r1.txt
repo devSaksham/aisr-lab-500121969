@@ -1,0 +1,9 @@
+Running swarm for 120 s with ['cruise=1.0'] ...
+Trajectory: analysis\runs\ex1_cruise1.0_r1.csv
+robot       path m  mean m/s  stuck %
+e-puck1      10.95     0.092      4.3
+e-puck2      11.00     0.092      6.1
+e-puck3      11.56     0.097      2.9
+e-puck4      11.64     0.097      5.1
+e-puck5      12.34     0.103      5.6
+coverage: 86% of 16x16 grid (10 cm cells)

@@ -1,0 +1,93 @@
+{
+ "grid": [
+  5,
+  7
+ ],
+ "walls": [
+  [
+   1,
+   2
+  ],
+  [
+   1,
+   4
+  ],
+  [
+   2,
+   2
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   3,
+   2
+  ]
+ ],
+ "goal": [
+  0,
+  6
+ ],
+ "pit": [
+  2,
+  6
+ ],
+ "start": [
+  4,
+  0
+ ],
+ "alpha": 0.5,
+ "gamma": 0.95,
+ "episodes": 600,
+ "step_cap": 120,
+ "seed": 0,
+ "optimal_return": 9.1,
+ "optimal_steps": 10,
+ "free_states": 28,
+ "runs": [
+  {
+   "eps": 0.01,
+   "mean_last100": 9.08,
+   "greedy_return": 9.1,
+   "greedy_steps": 10,
+   "greedy_reaches_goal": true,
+   "states_optimal": 26,
+   "first_positive_episode": 3
+  },
+  {
+   "eps": 0.1,
+   "mean_last100": 8.997000000000002,
+   "greedy_return": 9.1,
+   "greedy_steps": 10,
+   "greedy_reaches_goal": true,
+   "states_optimal": 26,
+   "first_positive_episode": 1
+  },
+  {
+   "eps": 0.2,
+   "mean_last100": 8.857999999999999,
+   "greedy_return": 9.1,
+   "greedy_steps": 10,
+   "greedy_reaches_goal": true,
+   "states_optimal": 28,
+   "first_positive_episode": 3
+  },
+  {
+   "eps": 0.5,
+   "mean_last100": 7.442,
+   "greedy_return": 9.1,
+   "greedy_steps": 10,
+   "greedy_reaches_goal": true,
+   "states_optimal": 28,
+   "first_positive_episode": 2
+  }
+ ],
+ "policy_grid_eps0.20": [
+  "\u2192 \u2192 \u2192 \u2192 \u2192 \u2192 G",
+  "\u2192 \u2191 # \u2191 # \u2191 \u2191",
+  "\u2191 \u2191 # \u2191 # \u2191 P",
+  "\u2191 \u2191 # \u2191 \u2192 \u2191 \u2190",
+  "\u2191 \u2192 \u2192 \u2191 \u2192 \u2191 \u2190"
+ ]
+}

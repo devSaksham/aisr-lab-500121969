@@ -1,0 +1,71 @@
+{
+ "python": "3.13.5",
+ "cpu": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+ "os": "Windows-11-10.0.26300-SP0",
+ "table": [
+  {
+   "n": 4,
+   "solutions": 2,
+   "nodes": 60,
+   "t_backtrack": 8.540000999346375e-05,
+   "t_generate": 9.50000248849392e-05
+  },
+  {
+   "n": 5,
+   "solutions": 10,
+   "nodes": 220,
+   "t_backtrack": 0.0002212999970652163,
+   "t_generate": 0.0011246000067330897
+  },
+  {
+   "n": 6,
+   "solutions": 4,
+   "nodes": 894,
+   "t_backtrack": 0.0011189000215381384,
+   "t_generate": 0.004867599986027926
+  },
+  {
+   "n": 7,
+   "solutions": 40,
+   "nodes": 3584,
+   "t_backtrack": 0.004877100000157952,
+   "t_generate": 0.047087500046472996
+  },
+  {
+   "n": 8,
+   "solutions": 92,
+   "nodes": 15720,
+   "t_backtrack": 0.019221299968194216,
+   "t_generate": 0.3916728000040166
+  },
+  {
+   "n": 9,
+   "solutions": 352,
+   "nodes": 72378,
+   "t_backtrack": 0.11949080001795664,
+   "t_generate": 6.852909199951682
+  },
+  {
+   "n": 10,
+   "solutions": 724,
+   "nodes": 348150,
+   "t_backtrack": 0.8673453000374138,
+   "t_generate": 95.33211310004117
+  }
+ ],
+ "fundamental": 12,
+ "images_per_class": [
+  4,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8
+ ]
+}

@@ -1,0 +1,9 @@
+Running swarm_ts64 for 120 s with default parameters ...
+Trajectory: analysis\runs\ex4_ts64_r1.csv
+robot       path m  mean m/s  stuck %
+e-puck1       5.21     0.044      9.7
+e-puck2       5.06     0.042     14.5
+e-puck3       5.43     0.046     15.6
+e-puck4       3.90     0.033      1.1
+e-puck5       5.88     0.049     14.0
+coverage: 63% of 16x16 grid (10 cm cells)

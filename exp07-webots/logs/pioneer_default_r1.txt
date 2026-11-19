@@ -1,0 +1,5 @@
+Running pioneer for 180 s with default parameters ...
+Trajectory: analysis\runs\pioneer_default_r1.csv
+robot       path m  mean m/s  stuck %
+pioneer      83.59     0.466      0.0
+coverage: 23% of 16x16 grid (50 cm cells)

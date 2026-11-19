@@ -1,0 +1,21 @@
+{
+ "maze_shape": [
+  23,
+  35
+ ],
+ "open_cells": 398,
+ "bfs": {
+  "expanded": 366,
+  "path_cells": 65,
+  "path_steps": 64,
+  "valid": true,
+  "max_frontier": 12
+ },
+ "dfs": {
+  "expanded": 94,
+  "path_cells": 81,
+  "path_steps": 80,
+  "valid": true,
+  "max_frontier": 16
+ }
+}

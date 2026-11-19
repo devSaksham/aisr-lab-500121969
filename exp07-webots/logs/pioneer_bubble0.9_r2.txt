@@ -1,0 +1,5 @@
+Running pioneer for 180 s with ['bubble=0.9'] ...
+Trajectory: analysis\runs\pioneer_bubble0.9_r2.csv
+robot       path m  mean m/s  stuck %
+pioneer      81.97     0.457      0.0
+coverage: 24% of 16x16 grid (50 cm cells)

@@ -1,0 +1,53 @@
+{
+ "trials": 500,
+ "plain_successes": 68,
+ "p": 0.136,
+ "p_stderr": 0.01532997064576446,
+ "mean_steps_success": 4.161764705882353,
+ "mean_steps_fail": 3.0902777777777777,
+ "landscape_local_maxima_x": [
+  0.52,
+  1.47,
+  2.75,
+  5.28,
+  7.65,
+  8.85,
+  9.95
+ ],
+ "landscape_global_x": 7.65,
+ "landscape_p_global": 0.26166666666666666,
+ "p_second_batch": 0.144,
+ "restarts": [
+  {
+   "k": 1,
+   "trials": 500,
+   "measured": 0.132,
+   "predicted": 0.136
+  },
+  {
+   "k": 2,
+   "trials": 500,
+   "measured": 0.262,
+   "predicted": 0.25350400000000006
+  },
+  {
+   "k": 5,
+   "trials": 500,
+   "measured": 0.54,
+   "predicted": 0.518530575794176
+  },
+  {
+   "k": 10,
+   "trials": 500,
+   "measured": 0.772,
+   "predicted": 0.7681871935549123
+  },
+  {
+   "k": 20,
+   "trials": 500,
+   "measured": 0.944,
+   "predicted": 0.9462628227680523
+  }
+ ],
+ "k_for_99": 32
+}
