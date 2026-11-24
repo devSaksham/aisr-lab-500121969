@@ -1,0 +1,36 @@
+pybullet build time: Oct 21 2025 11:46:21
+Collecting 40 noisy-expert demonstrations on kuka_iiwa ...
+  demos on kuka_iiwa    : 40 episodes, expert success 39/40
+  2664 (observation, action) pairs in 13 s
+  trained BC-agnostic on 14 features in 23 s
+  trained BC-proprio  on 21 features in 16 s
+  kuka_iiwa     expert       success 1.00
+  kuka_iiwa     BC-agnostic  success 1.00
+  kuka_iiwa     BC-proprio   success 1.00
+  franka_panda  expert       success 1.00
+  franka_panda  BC-agnostic  success 1.00
+  franka_panda  BC-proprio   success 0.05
+  xarm6         expert       success 1.00
+  xarm6         BC-agnostic  success 1.00
+  xarm6         BC-proprio   success 0.00
+  kuka_mini     expert       success 0.50
+  kuka_mini     BC-agnostic  success 0.60
+  kuka_mini     BC-proprio   success 0.00
+
+Learn on kuka_iiwa, deploy everywhere (20 episodes each)
+robot         policy       success_rate  mean_steps  median_error_cm
+------------  -----------  ------------  ----------  ---------------
+kuka_iiwa     expert       1.000         50.5        0.160          
+kuka_iiwa     BC-agnostic  1.000         51.7        0.249          
+kuka_iiwa     BC-proprio   1.000         52.3        0.227          
+franka_panda  expert       1.000         46.7        0.123          
+franka_panda  BC-agnostic  1.000         50.7        0.720          
+franka_panda  BC-proprio   0.050         112.0       25.6           
+xarm6         expert       1.000         44.0        0.290          
+xarm6         BC-agnostic  1.000         49.0        0.600          
+xarm6         BC-proprio   0.000         nan         32.3           
+kuka_mini     expert       0.500         44.5        1.451          
+kuka_mini     BC-agnostic  0.600         56.6        1.364          
+kuka_mini     BC-proprio   0.000         nan         32.3           
+
+Saved results/04_learn_once_deploy_many_kuka_iiwa.csv/.png and results/models/

@@ -1,0 +1,35 @@
+# xembody/robots.py -- the embodiment adapter: shared task-space target -> this robot's joints
+def command_tcp(self, target):
+    """TASK-SPACE command: move the tool tip to `target` (base frame, metres)."""
+    self.target = np.asarray(target, dtype=float)
+    link_target = self.target + self.base_pos + np.array([0.0, 0.0, self.tcp_offset])
+    q = p.calculateInverseKinematics(
+        self.uid, self.ee_index, link_target.tolist(), DOWN,
+        lowerLimits=self.lower.tolist(), upperLimits=self.upper.tolist(),
+        jointRanges=self.ranges.tolist(), restPoses=self.rest.tolist(),
+        maxNumIterations=100, residualThreshold=1e-4, physicsClientId=self.cid)
+    q = np.clip(np.array(q), self.lower, self.upper)
+    for k, j in enumerate(self.movable):
+        if j in self.finger_joints:
+            q[k] = 0.04
+    self.hold_joints(q)
+    return q
+
+# xembody/policy.py -- observation features: agnostic vs proprio (adds joint angles)
+def features(obs, joints, mode):
+    tcp, holding, cube, goal = obs[0:3], obs[3:4], obs[4:7], obs[7:10]
+    f = np.concatenate([cube - tcp, goal - cube, goal - tcp, tcp, cube[2:3], holding])
+    if mode == "proprio":
+        f = np.concatenate([f, joints])
+    return f
+
+# xembody/policy.py (collect_demos) -- DART: noisy execution, clean label
+a_star = expert_action(obs)
+q = st.robot.padded_joints()
+for m in OBS_MODES:
+    data[m][0].append(features(obs, q, m))
+    data[m][1].append(a_star)
+a = a_star.copy()
+a[:3] += rng.normal(0, noise, 3)
+st.apply_action(a)
+obs = world.step_physics()[0]

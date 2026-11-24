@@ -1,0 +1,36 @@
+pybullet build time: Oct 21 2025 11:46:21
+Collecting 60 noisy-expert demonstrations on xarm6 ...
+  demos on xarm6        : 60 episodes, expert success 58/60
+  3927 (observation, action) pairs in 22 s
+  trained BC-agnostic on 14 features in 21 s
+  trained BC-proprio  on 21 features in 17 s
+  kuka_iiwa     expert       success 1.00
+  kuka_iiwa     BC-agnostic  success 0.95
+  kuka_iiwa     BC-proprio   success 0.00
+  franka_panda  expert       success 1.00
+  franka_panda  BC-agnostic  success 0.95
+  franka_panda  BC-proprio   success 0.00
+  xarm6         expert       success 1.00
+  xarm6         BC-agnostic  success 0.95
+  xarm6         BC-proprio   success 0.95
+  kuka_mini     expert       success 0.50
+  kuka_mini     BC-agnostic  success 0.55
+  kuka_mini     BC-proprio   success 0.00
+
+Learn on xarm6, deploy everywhere (20 episodes each)
+robot         policy       success_rate  mean_steps  median_error_cm
+------------  -----------  ------------  ----------  ---------------
+kuka_iiwa     expert       1.000         50.5        0.160          
+kuka_iiwa     BC-agnostic  0.950         68.2        3.464          
+kuka_iiwa     BC-proprio   0.000         nan         32.3           
+franka_panda  expert       1.000         46.7        0.123          
+franka_panda  BC-agnostic  0.950         47.6        0.443          
+franka_panda  BC-proprio   0.000         nan         32.3           
+xarm6         expert       1.000         44.0        0.290          
+xarm6         BC-agnostic  0.950         44.9        0.220          
+xarm6         BC-proprio   0.950         45.8        0.330          
+kuka_mini     expert       0.500         44.5        1.451          
+kuka_mini     BC-agnostic  0.550         46.6        3.160          
+kuka_mini     BC-proprio   0.000         nan         32.3           
+
+Saved results/04_learn_once_deploy_many_xarm6.csv/.png and results/models/
